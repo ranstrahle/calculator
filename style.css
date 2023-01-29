@@ -1,12 +1,21 @@
 * {
   box-sizing: border-box;
   margin: 0px;
-  background-color: ;
+  background-color: #041404;
+  font-family: calculator;
 }
 
 @font-face {
     font-family: calculator;
     src: url(fonts/Calculator.ttf);
+}
+
+.title {
+  color: #2bc94f;
+  font-size: 100px;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: -50px;
 }
 
 .calculator {
@@ -29,7 +38,6 @@
   padding-right: 10px;
   margin: 20px;
   border-radius: 10px;
-  font-family: calculator;
   font-size: 60px;
   color: #2bc94f;
   background-color: #041404;
@@ -44,7 +52,6 @@
 
 .buttons-container button {
   height: 80px;
-  font-family: calculator;
   font-size: 40px;
   color: #2bc94f;
   background-color: black;
