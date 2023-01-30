@@ -1,10 +1,14 @@
 * {
   box-sizing: border-box;
   margin: 0px;
-  background-color: #041404;
   font-family: calculator;
 }
 
+
+html {
+  background-image: url("images/matrix.jpg");
+  background-size: cover;
+}
 @font-face {
     font-family: calculator;
     src: url(fonts/Calculator.ttf);
@@ -12,11 +16,14 @@
 
 .title {
   color: #2bc94f;
-  font-size: 100px;
+  font-size: 70px;
   text-align: center;
-  margin-top: 50px;
-  margin-bottom: -50px;
+  margin: 10px auto;
+  background-image: none;
+  max-width: 500px;
+  border-radius: 10px;
 }
+
 
 .calculator {
   border-style: solid;
@@ -24,30 +31,34 @@
   flex-direction: column;
   align-items: center;
   width: 480px;
-  height: 670px;
-  margin: 100px auto;
-  border-radius: 10px;
+  height: 750px;
+  margin: 250px auto 0px;
+  border-radius: 20px;
+  border-color:  #2bc94f;
   background-color: black;
+  background-image: none;
 }
 
 .display {
   border-style: solid;
   text-align: right;
-  width: 400px;
+  width: 410px;
   padding: 10px 0px;
   padding-right: 10px;
-  margin: 20px;
-  border-radius: 10px;
+  margin-bottom: 20px;
+  border-radius: 20px;
   font-size: 60px;
   color: #2bc94f;
-  background-color: #041404;
-  border-color: black;
+  background-color: black;
+  border-color: #2bc94f;
+  background-image: none;
 }
 
 .buttons-container {
   display: grid;
   grid-template-columns: 100px 100px 100px 100px;
   gap: 5px;
+  background-image: none;
 }
 
 .buttons-container button {
@@ -57,4 +68,20 @@
   background-color: black;
   border-color: #2bc94f;
   border-radius: 20px;
+  background-image: none;
+}
+
+button sup, button span {
+  background-image: none;
+}
+
+.footer {
+  color: #2bc94f;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 30px;
+  margin-right: 10px;
+  background-image: none;
+  background-color: black;
 }
