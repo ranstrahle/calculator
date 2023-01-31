@@ -1,11 +1,10 @@
  let operatorRan = false;
  
  function attachEventToNumber() {
-        const numbers = document.querySelectorAll(".number")
-        numbers.forEach(number => {
+        document.querySelectorAll(".number").forEach(number => {
             number.addEventListener("click", (e) => {changeNumber(number)})
         })
-    }
+    } 
     
 attachEventToNumber();
 
@@ -14,6 +13,18 @@ function attachPlusEvent() {
 }
 
 attachPlusEvent();
+
+function attachSubtractEvent() {
+    document.querySelector(".subtraction").addEventListener("click", (e) => subtract());
+}
+
+attachSubtractEvent();
+
+function attachMultiplicationEvent() {
+    document.querySelector(".multiplication").addEventListener("click", (e) => multiply());
+}
+
+attachMultiplicationEvent();
 
 function attachClearEntryEvent() {
     document.querySelector(".clear-entry").addEventListener("click", (e) => {
@@ -72,20 +83,29 @@ function add() {
     }
 
 function subtract(x,y) {
-    return x - y;
-}
+    operatorRan = true;
+    const displayTop = document.querySelector(".display-top");
+    const displayBottom = document.querySelector(".display-bottom");
+    let displayTopValue = displayTop.innerHTML.replace(/\W/g, "");
+    if (displayTop.innerHTML !== "empty") {
+        displayBottom.innerHTML = +displayTopValue - -+displayBottom.innerHTML;
+        displayTop.innerHTML = displayBottom.innerHTML + " -";
+    } else 
+       displayTop.innerHTML = displayBottom.innerHTML + " -";
+    }
 
 function multiply(x,y) {
-    return x * y;
-}
+    operatorRan = true;
+    const displayTop = document.querySelector(".display-top");
+    const displayBottom = document.querySelector(".display-bottom");
+    let displayTopValue = displayTop.innerHTML.replace(/\W/g, "");
+    if (displayTop.innerHTML !== "empty") {
+        displayBottom.innerHTML = +displayTopValue * +displayBottom.innerHTML;
+        displayTop.innerHTML = displayBottom.innerHTML + " x";
+    } else 
+       displayTop.innerHTML = displayBottom.innerHTML + " x";
+    }
 
-function divide(x,y) {
-    return x * y;
-}
-
-function square(x,y) {
-    return x ** y;
-}
 
 //change value of variable according 
 

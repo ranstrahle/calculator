@@ -1,0 +1,83 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  font-family: calculator;
+  background-color: #393E46;
+}
+
+@font-face {
+    font-family: calculator;
+    src: url(fonts/Calculator.ttf);
+}
+
+.title {
+  color: #2bc94f;
+  font-size: 70px;
+  text-align: center;
+  margin: 10px auto;
+  background-image: none;
+  max-width: 500px;
+  border-radius: 10px;
+}
+
+
+.calculator {
+  border-style: solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 480px;
+  height: 820px;
+  margin: 250px auto 0px;
+  border-radius: 20px;
+  border-color:  #2bc94f;
+  background-color: black;
+  background-image: none;
+}
+
+.display {
+  border-style: solid;
+  text-align: right;
+  width: 410px;
+  padding: 10px 0px;
+  padding-right: 10px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  font-size: 60px;
+  color: #2bc94f;
+  background-color: black;
+  border-color: #2bc94f;
+  background-image: none;
+}
+
+.buttons-container {
+  display: grid;
+  grid-template-columns: 100px 100px 100px 100px;
+  gap: 5px;
+  background-image: none;
+}
+
+.buttons-container button {
+  height: 80px;
+  font-size: 40px;
+  color: #2bc94f;
+  background-color: black;
+  border-color: #2bc94f;
+  border-radius: 20px;
+  background-image: none;
+}
+
+button sup, button span {
+  background-image: none;
+}
+
+.footer {
+  color: #2bc94f;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 30px;
+  margin-right: 10px;
+  background-image: none;
+  background-color: black;
+}
