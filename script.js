@@ -1,26 +1,37 @@
-
-
-
-//change value of variable when number button is clicked
-function attachEventToNumber() {
-    const numbers = document.querySelectorAll(".number");
-    numbers.forEach(number => {
-        number.addEventListener("click", changeNumber(number))
-    })
-}
-
+ function attachEventToNumber() {
+        const numbers = document.querySelectorAll(".number")
+        numbers.forEach(number => {
+            number.addEventListener("click", (e) => {changeNumber(number)})
+        })
+    }
+    
 attachEventToNumber();
 
 function changeNumber(number) {
     const displayBottom = document.querySelector(".display-bottom");
-    displayBottom.innerHTML = number.innerHTML;
+    if(displayBottom.innerHTML == "0") {
+        displayBottom.innerHTML = number.innerHTML;
+    } else {
+        displayBottom.innerHTML += number.innerHTML;
+    }
 }
 
-
-function add(x,y) {
-    return x + y;
+function attachPlusEvent() {
+    document.querySelector(".addition").addEventListener("click", (e) => add());
 }
 
+attachPlusEvent();
+
+function add() {
+    const displayTop = document.querySelector(".display-top");
+    const displayBottom = document.querySelector(".display-bottom");
+    let displayTopValue = displayTop.innerHTML.replace(/\W/g, "");
+    if (displayTop.innerHTML !== "empty") {
+        displayBottom.innerHTML = +displayBottom.innerHTML + +displayTopValue;
+        displayTop.innerHTML = displayBottom.innerHTML + " +";
+    } else 
+       displayTop.innerHTML = displayBottom.innerHTML + " +";
+    }
 function subtract(x,y) {
     return x - y;
 }
