@@ -54,6 +54,12 @@ html {
   background-image: none;
 }
 
+.display-top {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
 .buttons-container {
   display: grid;
   grid-template-columns: 100px 100px 100px 100px;

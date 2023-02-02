@@ -1,34 +1,60 @@
  let operatorRan = false;
+ let numberDisplay = document.querySelector(".display-numbers");
+ let operatorDisplay = document.querySelector(".display-operator")
+ let bottomDisplay = document.querySelector(".display-bottom");
+ let numberDisplayText = numberDisplay.innerHTML;
+ let operatorDisplayText = operatorDisplay.innerHTML; 
+ let bottomDisplayText = bottomDisplay.innerHTML;
+ 
+ 
+ //attach number event
  
  function attachEventToNumber() {
-        document.querySelectorAll(".number").forEach(number => {
-            number.addEventListener("click", (e) => {changeNumber(number)})
+        document.querySelectorAll(".number").
+        forEach(number => { number.
+        addEventListener("click", (e) => {changeNumber(number)})
         })
     } 
     
 attachEventToNumber();
 
+//attach operator events
+
 function attachPlusEvent() {
-    document.querySelector(".addition").addEventListener("click", (e) => add());
+    document.querySelector(".addition").
+    addEventListener("click", (e) => add());
 }
 
 attachPlusEvent();
 
 function attachSubtractEvent() {
-    document.querySelector(".subtraction").addEventListener("click", (e) => subtract());
+    document.querySelector(".subtraction").
+    addEventListener("click", (e) => subtract());
 }
 
 attachSubtractEvent();
 
 function attachMultiplicationEvent() {
-    document.querySelector(".multiplication").addEventListener("click", (e) => multiply());
+    document.querySelector(".multiplication").
+    addEventListener("click", (e) => multiply());
 }
 
 attachMultiplicationEvent();
 
+
+function attachDivisionEvent() {
+    document.querySelector(".division").
+    addEventListener("click", (e) => division());
+}
+
+attachDivisionEvent();
+
+//attach erasure events
+
 function attachClearEntryEvent() {
-    document.querySelector(".clear-entry").addEventListener("click", (e) => {
-        document.querySelector(".display-bottom").innerHTML = "0";
+    document.querySelector(".clear-entry").
+    addEventListener("click", (e) => {
+        bottomDisplay.innerHTML = "0";
     });
 }
 
@@ -36,8 +62,9 @@ attachClearEntryEvent();
 
 function attachClearEvent() {
 document.querySelector(".clear").addEventListener("click", (e) => {
-    document.querySelector(".display-bottom").innerHTML = "0";
-    document.querySelector(".display-top").innerHTML = "empty";
+    bottomDisplay.innerHTML = "0";
+    numberDisplay.innerHTML = "empty";
+    operatorDisplay.innerHTML = "";
 });
 }
 
@@ -45,67 +72,61 @@ attachClearEvent();
 
 function attachDeleteEvent() {
     document.querySelector(".delete").addEventListener("click", (e) => {
-        let displayBottom = document.querySelector(".display-bottom");
-        if(displayBottom.innerHTML.length == 1){
-            displayBottom.innerHTML = "0";
+        if(bottomDisplay.innerHTML.length == 1){
+            bottomDisplay.innerHTML = "0";
         } else {
-            displayBottom.innerHTML = displayBottom.innerHTML.slice(0, -1);
+            bottomDisplay.innerHTML = bottomDisplay.innerHTML.slice(0, -1);
         }
     });
-    }
+}
 
 attachDeleteEvent();
 
-function operatorHasBeenRun() {
-    let operatorRan = true;
-}
-
 function changeNumber(number) {
-    const displayBottom = document.querySelector(".display-bottom");
-    if(displayBottom.innerHTML == "0" || operatorRan == true) {
-        displayBottom.innerHTML = number.innerHTML;
+    if(bottomDisplay.innerHTML == "0" || operatorRan == true) {
+        bottomDisplay.innerHTML = number.innerHTML;
         operatorRan = false;
     } else {
-        displayBottom.innerHTML += number.innerHTML;
+        bottomDisplay.innerHTML += number.innerHTML;
     }
 }
 
 function add() {
     operatorRan = true;
-    const displayTop = document.querySelector(".display-top");
-    const displayBottom = document.querySelector(".display-bottom");
-    let displayTopValue = displayTop.innerHTML.replace(/\W/g, "");
-    if (displayTop.innerHTML !== "empty") {
-        displayBottom.innerHTML = +displayBottom.innerHTML + +displayTopValue;
-        displayTop.innerHTML = displayBottom.innerHTML + " +";
-    } else 
-       displayTop.innerHTML = displayBottom.innerHTML + " +";
-    }
+    if (numberDisplay.innerHTML !== "empty") {
+        bottomDisplay.innerHTML = +bottomDisplay.innerHTML + +numberDisplay.innerHTML;
+    } 
+      numberDisplay.innerHTML = bottomDisplay.innerHTML;
+      operatorDisplay.innerHTML = "+";
+    } 
+
 
 function subtract(x,y) {
     operatorRan = true;
-    const displayTop = document.querySelector(".display-top");
-    const displayBottom = document.querySelector(".display-bottom");
-    let displayTopValue = displayTop.innerHTML.replace(/\W/g, "");
-    if (displayTop.innerHTML !== "empty") {
-        displayBottom.innerHTML = +displayTopValue - -+displayBottom.innerHTML;
-        displayTop.innerHTML = displayBottom.innerHTML + " -";
-    } else 
-       displayTop.innerHTML = displayBottom.innerHTML + " -";
-    }
+    if (numberDisplay.innerHTML !== "empty") {
+        bottomDisplay.innerHTML = +numberDisplay.innerHTML - +bottomDisplay.innerHTML;
+    } 
+      numberDisplay.innerHTML = bottomDisplay.innerHTML;
+      operatorDisplay.innerHTML = "-";
+    } 
 
 function multiply(x,y) {
     operatorRan = true;
-    const displayTop = document.querySelector(".display-top");
-    const displayBottom = document.querySelector(".display-bottom");
-    let displayTopValue = displayTop.innerHTML.replace(/\W/g, "");
-    if (displayTop.innerHTML !== "empty") {
-        displayBottom.innerHTML = +displayTopValue * +displayBottom.innerHTML;
-        displayTop.innerHTML = displayBottom.innerHTML + " x";
-    } else 
-       displayTop.innerHTML = displayBottom.innerHTML + " x";
-    }
+    if (numberDisplay.innerHTML !== "empty") {
+        bottomDisplay.innerHTML = +numberDisplay.innerHTML * +bottomDisplay.innerHTML;
+    } 
+      numberDisplay.innerHTML = bottomDisplay.innerHTML;
+      operatorDisplay.innerHTML = "*";
+    } 
 
+    function division(x,y) {
+        operatorRan = true;
+        if (numberDisplay.innerHTML !== "empty") {
+            bottomDisplay.innerHTML = +numberDisplay.innerHTML / +bottomDisplay.innerHTML;
+        } 
+          numberDisplay.innerHTML = bottomDisplay.innerHTML;
+          operatorDisplay.innerHTML = "/";
+        }        
 
 //change value of variable according 
 
